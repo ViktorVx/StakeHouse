@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block tytle %}
+	<title>Новости</title>
+{% endblock %}
+
+{% block main_info %}
+	{% for nn in news %}
+		<div class="news_block">
+			<h1>{{nn.header}}</h1>
+			<p>
+				{{nn.full_description}}
+			</p>
+		</div>
+	{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,96 @@
+.header{
+	margin: 0 auto;
+	background-color: black;
+	height: 100px;
+
+}
+
+.logo{
+	float: left;
+	margin-left: 15px;
+	margin-top: 10px;
+}
+
+.main_menu{
+	float: right;
+	margin-right: 10px;
+	margin-top: 40px;
+}
+
+.main_menu li {
+	display: inline;
+	margin-right: 10px;
+	padding: 3px;
+}
+
+.main_menu li a{
+	line-height: 1;
+	display: inline-block;
+	font-size: 17px;
+	text-transform: uppercase;
+	text-decoration: none;
+	cursor: pointer;
+	color: #fff;
+}
+
+.main_menu li a:after{
+	display: block;
+	content: "";
+	height: 2px;
+	width: 0%;
+	background-color: #fff;
+	transition: width .3s ease-in-out;
+}
+
+.main_menu li a:hover:after,
+.maim_menu li a:focus:after{
+	width: 100%
+}
+
+.container{
+	margin: 0 auto;
+	width: 1300px;
+	background-color: #00c2c2;	
+}
+.footer{
+	margin: 0 auto;
+	width: 1300px;
+	height: 300px;
+	background-color: red;	
+}
+
+.main{
+	margin: 0 auto;
+	width: 1300px;
+	height: 450px;
+}
+
+.cls{
+	clear: both;
+}
+
+.copyrights{
+	margin: 0 auto;
+	background-color: green;
+}
+.l_place{
+	margin: 0 auto;
+	font-size: 32px;
+	border: 3px solid black;
+	width: 1000px;
+	margin-bottom: 5px;
+}
+
+.button_space{
+	background-color: green;
+}
+.auth{
+	background-color: red;
+	height: 70px;
+}
+
+.news_block{
+	background-color: yellow;
+	border: 2px solid black;
+}
+
