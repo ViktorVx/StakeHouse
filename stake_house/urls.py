@@ -19,9 +19,11 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^my_admin/', main_app.admin_page),
     url(r'^$', main_app.main_page),
     url(r'^user/login/$', main_app.login),
     url(r'^user/logout/$', main_app.logout),
+    url(r'^user/register/$', main_app.register),
 
     url(r'^stakes/$', main_app.stakes),
     url(r'^contacts/$', main_app.contacts),

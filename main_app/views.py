@@ -2,6 +2,7 @@ from django.shortcuts import render, HttpResponseRedirect
 from django.contrib import auth
 from django.http import Http404
 from .models import News
+from .forms import RegistrationForm
 
 
 def login(request):
@@ -17,10 +18,23 @@ def login(request):
     raise Http404
 
 
+def admin_page(request):
+    pass
+
 def logout(request):
 	auth.logout(request)
 	return HttpResponseRedirect("/")
 
+def register(request):
+    if request.method == 'POST':
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/')
+        context = {'form': form}
+        return render(request, 'registration.html', context)
+    context = {'form': RegistrationForm()}
+    return render(request, 'registration.html', context)
 
 
 def main_page(request):
