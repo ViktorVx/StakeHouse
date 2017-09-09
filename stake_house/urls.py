@@ -1,4 +1,5 @@
 import main_app.views as main_app
+import adminApp.views as admin_app
 """stake_house URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -19,7 +20,7 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^my_admin/', main_app.admin_page),
+    url(r'^my_admin/', admin_app.admin_page),
     url(r'^$', main_app.main_page),
     url(r'^user/login/$', main_app.login),
     url(r'^user/logout/$', main_app.logout),

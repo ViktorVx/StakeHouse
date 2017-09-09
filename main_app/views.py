@@ -18,9 +18,6 @@ def login(request):
     raise Http404
 
 
-def admin_page(request):
-    pass
-
 def logout(request):
 	auth.logout(request)
 	return HttpResponseRedirect("/")
