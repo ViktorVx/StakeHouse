@@ -2,9 +2,9 @@ from django.shortcuts import render, HttpResponseRedirect
 from django.contrib import auth
 from django.http import Http404
 from .models import News
-from .forms import RegistrationForm
+#from .forms import RegistrationForm
 
-
+"""
 def login(request):
     if request.method == 'POST':
         username = request.POST.get('login')
@@ -32,7 +32,7 @@ def register(request):
         return render(request, 'registration.html', context)
     context = {'form': RegistrationForm()}
     return render(request, 'registration.html', context)
-
+"""
 
 def main_page(request):
 	return render(request, 'main.html')
