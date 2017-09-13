@@ -26,6 +26,8 @@ urlpatterns = [
     url(r'^my_admin/delete/(\d+)/$', admin_app.delete_user, name='delete_user'),
     url(r'^my_admin/create_user/$', admin_app.create_user, name='create_user'),
     url(r'^my_admin/update_user/(\d+)/$', admin_app.update_user, name='update_user'),
+    url(r'^paginate/$', admin_app.listing, name='listing_user'),
+
 
 
 

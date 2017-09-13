@@ -1,3 +1,4 @@
+{% load cut_str %}
 {% extends "base.html" %}
 
 {% block tytle %}
@@ -9,7 +10,7 @@
 		<div class="news_block">
 			<h1>{{nn.header}}</h1>
 			<p>
-				{{nn.full_description}}
+				{{nn.full_description|cut_str:"3"}}
 			</p>
 		</div>
 	{% endfor %}

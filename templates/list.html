@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Пагинация</title>
+</head>
+<body>
+<a href="/">На главную</a><br><br>
+    {% for user in us %}
+        {{user.username}}</br>
+    {% endfor %}
+    <br>
+    <div class="pagination">
+        <span class="step-links">
+            {% if us.has_previous %}
+                <a href="?page={{us.previous_page_number}}">На предыдущую</a>
+            {% endif %}
+            {% for i in pages %}
+                <a href="?page={{i}}">{{i}}</a>
+            {% endfor %}
+            <span class="current">Страница: {{us.number}} из {{us.paginator.num_pages}} </span>
+            {% if us.has_next %}
+                <a href="?page={{us.next_page_number}}">На следующую</a>
+            {% endif %}
+        </span>
+    </div>
+</body>
+</html>
+
+
+
+
+

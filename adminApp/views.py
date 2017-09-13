@@ -1,8 +1,9 @@
-from django.shortcuts import render, HttpResponseRedirect, get_object_or_404
+from django.shortcuts import render, HttpResponseRedirect, get_object_or_404, render_to_response
 from django.contrib.auth.models import User
 #from main_app.forms import RegistrationForm
 from django.contrib.auth.decorators import user_passes_test
 from .forms import RegistrationForm
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 # доступ у админке только суперпользователю
@@ -39,12 +40,25 @@ def create_user(request):
 def update_user(request, user_id):
 	user = get_object_or_404(User, id=user_id)
 	if request.method=='POST':
-		form = RegistrationForm(request.POST, isinstance=user)
+		form = RegistrationForm(request.POST, instance=user)
 		if form.is_valid:
 			form.save()
 			return HttpResponseRedirect('/my_admin')
 		else:
-			pass
-			#Тут остановился!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+			return render(request, 'admin_update_user.html', {'form':form})
 	else:
-		pass
+		form = RegistrationForm(instance=user)
+		return render(request, 'admin_update_user.html', {'form':form})
+
+def listing(request):
+	user_list = User.objects.all()
+	paginator = Paginator(user_list, 10)
+	page = request.GET.get('page')
+	num_pages = list(range(1, paginator.num_pages + 1))
+	try:
+		us = paginator.page(page)
+	except PageNotAnInteger:
+		us = paginator.page(1)
+	except EmptyPage:
+		us = paginator.page(paginator.num_pages)
+	return render_to_response('list.html', {'us':us, 'pages':num_pages})
